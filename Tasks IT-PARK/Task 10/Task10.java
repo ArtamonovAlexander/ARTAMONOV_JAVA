@@ -11,14 +11,14 @@ public class Task10 {
 
         for (int i = 0; i < text1.length; i++) {
             if (text1[i] == text2[0]) {
-                index = i;
                 for (int j = 0; j < text2.length; j++) {
-                    value1 = (int) text1[i + j];
-                    value2 = (int) text2[j];
+                    value1 += (int) text1[i + j];
+                    value2 += (int) text2[j];
                 }
                 if (value1 == value2) {
                     System.out.println("Congratulations");
-                    System.out.println("Вхождение второй строки в первую начинается с индекса " + index);
+                    System.out.println("Вхождение второй строки в первую начинается с индекса " + i);
+                    return;
                 }
             }
         }
