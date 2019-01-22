@@ -1,16 +1,25 @@
 package com.javarush.task.ITpark3.television;
 
 public class RemoteController {
-    private int index = 0;
+    private TV tv;
+    private int indexTurning = 0;
+
+    public RemoteController(TV tv) {
+        this.tv = tv;
+    }
+
+    public void pressButton(int buttonNumber) {
+        tv.showChannel(buttonNumber);
+    }
 
     public void turningOffOn() {
-        if (index == 0) {
-            System.out.println("Включение телевизора");
-            this.index++;
-            return;
-        } else if (index == 1) {
-            System.out.println("Выключение телевизора");
-            this.index = 0;
+        if (indexTurning == 0) {
+            System.out.println("РўРµР»РµРІРёР·РѕСЂ РІРєР»СЋС‡РµРЅ");
+            this.indexTurning++;
+        } else if (indexTurning == 1) {
+            System.out.println("РўРµР»РµРІРёР·РѕСЂ РІС‹РєР»СЋС‡РµРЅ");
+            this.indexTurning = 0;
         }
     }
+
 }

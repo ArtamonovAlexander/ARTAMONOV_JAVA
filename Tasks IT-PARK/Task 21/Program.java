@@ -1,19 +1,17 @@
 package com.javarush.task.ITpark3.television;
 
 public class Program {
-    private int numberProgram;
-    private String nameChannel;
+    private String name;
 
-    public Program(int numberProgram, String nameChannel) {
-        this.nameChannel = nameChannel;
-        this.numberProgram = numberProgram;
+    public Program(String name) {
+        this.name = name;
     }
 
-    public int getNumberProgram() {
-        return numberProgram;
+    public String getName() {
+        return name;
     }
 
-    public String getNameChannel() {
-        return nameChannel;
+    void printName() {
+        System.out.println(name);
     }
 }
