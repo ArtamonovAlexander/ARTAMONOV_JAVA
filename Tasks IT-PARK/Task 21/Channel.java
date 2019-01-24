@@ -1,7 +1,6 @@
 package com.javarush.task.ITpark3.television;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Channel {
     private String name;
@@ -11,10 +10,10 @@ public class Channel {
     public Channel(String name, Program... programs) {
         this.name = name;
         this.programs = programs;
-        random = new Random(programs.length);
+        random = new Random();
     }
 
     void show() {
-        programs[ThreadLocalRandom.current().nextInt(0, programs.length)].printName();
+        programs[random.nextInt(programs.length)].printName();
     }
 }
