@@ -1,26 +1,47 @@
 package com.javarush.task.ITpark3.parking;
 
-import java.util.Scanner;
+public class Parking {
+    private Transport transports[];
+    private int transportCount;
+    private int MAX_NUMBER_SEAT = 5;
 
-public class Parking extends Transport {
-    Scanner scanner = new Scanner(System.in);
-
-    public Parking(String name, int gosNumber) {
-        super(name, gosNumber);
+    public Parking() {
+        transports = new Transport[MAX_NUMBER_SEAT];
+    }
+    public void onParking(Transport transport) {
+        transport.printNumberIn();
+        transports[transportCount] = transport;
+        transportCount++;
+    }
+    public void outParking(Transport transport) {
+        transport.printNumberOut();
     }
 
-    public void parkingByGosNumber() {
-        System.out.println(getName() + " c ГосНомером " + getGosNumber() + " припарковался!");
-    }
-
-    public void leaveTheParking() {
-        System.out.println("Сообщите ваш гос. номер!");
-        int number = scanner.nextInt();
-        for (int i = 0; i < transports.length; i++) {
-            if (number == transports[i].getGosNumber()) {
-                System.out.println(getName() + " с номером " + getGosNumber() + " свободен!");
-            }
-            else System.out.println("Транспортное средство с нормером " + number + " не найдено..");
-        }
-    }
+//    public Parking(int numberCount) {
+//    parkingSeats = new ParkingSeat[numberCount];
+//    }
+//
+//    public void parkingByGosNumber(String name, int gosNumber, int numberParking) {
+//        parkingSeats[numberParking] = new ParkingSeat(name, gosNumber);
+//        System.out.println(name + " c ГосНомером " + gosNumber + " припарковался!");
+//    }
+//
+//    public void leaveTheParking(int numberParking) {
+//        if (numberParking >= 0 && numberParking < parkingSeats.length && parkingSeats[numberParking] != null){
+//            System.out.println(parkingSeats[numberParking].name + " с номером " + parkingSeats[numberParking].gosNumber + " свободен!");
+//            parkingSeats[numberParking] = null;
+//        }
+//        else System.out.println(" Такого места нет");
+//    }
+//
+//    class ParkingSeat{
+//        String name;
+//        int gosNumber;
+//
+//        public ParkingSeat(String name, int gosNumber) {
+//            this.name = name;
+//            this.gosNumber = gosNumber;
+//        }
+//
+//    }
 }

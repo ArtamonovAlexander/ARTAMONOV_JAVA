@@ -2,6 +2,7 @@ package com.javarush.task.ITpark3.parking;
 
 public class Main {
     public static void main(String[] args) {
+        Parking parking = new Parking();
         Aircraft aircraft = new Aircraft("Самолет", 2);
         Helicopter helicopter = new Helicopter("Велосипед", 13);
         Spaceship spaceship = new Spaceship("Космический корабль", 785242637);
@@ -25,8 +26,8 @@ public class Main {
 
         Transport transports[]= {aircraft, helicopter, spaceship, tank, car};
         for (int i = 0; i < transports.length; i++) {
-            transports[i].parkingByGosNumber();
+            parking.onParking(transports[i]);
         }
-
+        parking.outParking(tank);
     }
 }
