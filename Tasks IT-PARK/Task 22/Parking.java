@@ -3,19 +3,30 @@ package com.javarush.task.ITpark3.parking;
 public class Parking {
     private Transport transports[];
     private int transportCount;
-    private int MAX_NUMBER_SEAT = 5;
+    private final int MAX_NUMBER_SEAT = 5;
 
     public Parking() {
         transports = new Transport[MAX_NUMBER_SEAT];
     }
-    public void onParking(Transport transport) {
-        transport.printNumberIn();
+    public void onParking(Transport transport, int gosNumber) {
         transports[transportCount] = transport;
-        transportCount++;
+        if (transports[transportCount].getGosNumber() == gosNumber){
+            transport.printNumberIn();
+            transportCount++;
+        }else {
+            System.out.println("Указанный Вами номер не соответствует госномеру Вашего ТС!");
+            transports[transportCount] = null;
+        }
     }
-    public void outParking(Transport transport) {
-        transport.printNumberOut();
+    public void outParking(Transport transport, int gosNumber) {
+        for (int i = 0; i < transportCount; i++) {
+            if(transports[i].getGosNumber() == gosNumber){
+                transport.printNumberOut();
+                transports[i] = null;
+            } else System.out.println("Такого транспортного средства на парковке нет!");
+        }
     }
+
 
 //    public Parking(int numberCount) {
 //    parkingSeats = new ParkingSeat[numberCount];

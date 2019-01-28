@@ -24,10 +24,9 @@ public class Main {
             shoots[i].shoot();
         }
 
-        Transport transports[]= {aircraft, helicopter, spaceship, tank, car};
-        for (int i = 0; i < transports.length; i++) {
-            parking.onParking(transports[i]);
-        }
-        parking.outParking(tank);
+        parking.onParking(car, 124);
+        parking.onParking(helicopter, 27);
+
+        parking.outParking(tank, 27);
     }
 }
