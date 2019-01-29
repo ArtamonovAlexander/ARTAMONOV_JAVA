@@ -23,6 +23,10 @@ public class Parking {
             if(transports[i].getGosNumber() == gosNumber){
                 transport.printNumberOut();
                 transports[i] = null;
+                while (i != transportCount-1){
+                    transports[i] = transports[i+1];
+                }
+                transportCount--;
             } else System.out.println("Такого транспортного средства на парковке нет!");
         }
     }
