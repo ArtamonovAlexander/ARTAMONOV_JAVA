@@ -22,7 +22,6 @@ public class Parking {
         for (int i = 0; i < transportCount; i++) {
             if(transports[i].getGosNumber() == gosNumber){
                 transport.printNumberOut();
-                transports[i] = null;
                 while (i != transportCount-1){
                     transports[i] = transports[i+1];
                 }
