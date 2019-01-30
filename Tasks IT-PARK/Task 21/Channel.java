@@ -5,15 +5,27 @@ import java.util.Random;
 public class Channel {
     private String name;
     private Program[] programs;
-    Random random;
+    private int count = 0;
+    private int MAX_PROGRAM = 5;
 
-    public Channel(String name, Program... programs) {
+    Random random = new Random();
+
+    public Channel (String name){
+        this.programs = new Program[MAX_PROGRAM];
+    }
+
+    public Channel(String name, Program[] programs) {
         this.name = name;
         this.programs = programs;
-        random = new Random();
     }
 
     void show() {
-        programs[random.nextInt(programs.length)].printName();
+        System.out.print("Канал " + name);
+        programs[random.nextInt(count)].printName();
+    }
+
+    void addProgram(Program program) {
+        this.programs[count] = program;
+        count++;
     }
 }

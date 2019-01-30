@@ -7,11 +7,9 @@ public class Program {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     void printName() {
-        System.out.println(name);
+        System.out.println(" представляет вашему вниманию " + name + ".");
     }
 }
+
+
