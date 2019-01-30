@@ -2,12 +2,13 @@ package com.javarush.task.ITpark3.parking;
 
 public class Parking {
     private Transport transports[];
-    private int transportCount;
+    private int transportCount = 0;
     private final int MAX_NUMBER_SEAT = 5;
 
     public Parking() {
         transports = new Transport[MAX_NUMBER_SEAT];
     }
+
     public void onParking(Transport transport, int gosNumber) {
         transports[transportCount] = transport;
         if (transports[transportCount].getGosNumber() == gosNumber){
@@ -22,8 +23,8 @@ public class Parking {
         for (int i = 0; i < transportCount; i++) {
             if(transports[i].getGosNumber() == gosNumber){
                 transport.printNumberOut();
-                while (i != transportCount-1){
-                    transports[i] = transports[i+1];
+                for (int j = i; j < transportCount - 1; j++) {
+                    transports[j] = transports[j+1];
                 }
                 transportCount--;
             } else System.out.println("Такого транспортного средства на парковке нет!");
