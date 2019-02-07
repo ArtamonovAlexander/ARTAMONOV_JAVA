@@ -3,15 +3,6 @@ package com.javarush.task.ITpark3.parking;
 public abstract class Transport {
     private String name;
     private int gosNumber;
-//    private int seatNumber;
-//
-//    public int getSeatNumber() {
-//        return seatNumber;
-//    }
-//
-//    public void setSeatNumber(int seatNumber) {
-//        this.seatNumber = seatNumber;
-//    }
 
     public Transport(String name, int gosNumber) {
         this.name = name;
@@ -33,14 +24,10 @@ public abstract class Transport {
         System.out.println(getName() + " c номером " + gosNumber + " выезжает!");
         return gosNumber;
     }
-
-
-
-
-
-
-
-//    void parkingByGosNumber(){
-//        System.out.println(getName() + " c ГосНомером " + getGosNumber() + " припарковался!");
-//    }
+    void onPark(Parking parking){
+        parking.onParking(this);
+    }
+    void outPark(Parking parking){
+        parking.outParking(this, this.getGosNumber());
+    }
 }
