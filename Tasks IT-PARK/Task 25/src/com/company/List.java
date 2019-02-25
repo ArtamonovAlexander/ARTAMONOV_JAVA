@@ -10,4 +10,5 @@ public interface List<T> {
     boolean contains(T element); // возвращает true, если список содержит заданный элемент
     int indexOf(T element); // возвращает индекс элемента, если он есть в списке, -1 - если не нашел ничего
     void print(); // печать списка
+    void remove(int index);
 }

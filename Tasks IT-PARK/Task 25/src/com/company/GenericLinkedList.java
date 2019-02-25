@@ -1,8 +1,8 @@
 package com.company;
 
 public class GenericLinkedList<T> implements List<T> {
-    private Node top;
-    private Node tail;
+    private Node <T> top;
+    private Node <T> tail;
     private int count;
     private T elements[];
 
@@ -36,6 +36,20 @@ public class GenericLinkedList<T> implements List<T> {
             current = current.getNext();
         }
         System.out.println();
+    }
+
+    @Override
+    public void remove(int index) {
+        if (index < getCount() && index > 0) {
+            Node currentNode = top;
+            Node tmp = null;
+            for (int i = 0; i < index-1; i++) {
+                currentNode = currentNode.getNext();
+            }
+            tmp = currentNode;
+            currentNode = currentNode.getNext();
+            tmp.setNext(currentNode.getNext());
+        }
     }
 
     @Override
@@ -83,9 +97,9 @@ public class GenericLinkedList<T> implements List<T> {
             for (int i = 0; i < index - 1; i++) {
                 current = current.getNext();
             }
-            node.setNext(current.getNext()); // у нас метод setNext только ссылки копирует, зачем добавляем .getNext ?
-            current.setNext(node);    // ссылку current мы занесли в поле ссылки на node.
-            count++;                  // Разве в 65 стр. мы не затерли её сыллкой current?
+            node.setNext(current.getNext());
+            current.setNext(node);
+            count++;
         } else System.err.println("не верный индекс");
     }
 
@@ -129,5 +143,25 @@ public class GenericLinkedList<T> implements List<T> {
             current = current.getNext();
         }
         return -1;
+    }
+
+    private class LinkedListIterator implements Iterator{
+        Node <T> current;
+
+        public LinkedListIterator() {
+            this.current = top;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T value = current.getValue();
+            current = current.getNext();
+            return  value;
+        }
     }
 }

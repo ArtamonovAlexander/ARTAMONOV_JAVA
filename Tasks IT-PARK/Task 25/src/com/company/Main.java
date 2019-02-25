@@ -38,6 +38,12 @@ public class Main {
         System.out.println(intLink.indexOf(3));
         intLink.insert(5, 4);
         intLink.print();
+        intLink.remove(2);
+        intLink.print();
+
+        integerList.print();
+        integerList.remove(2);
+        integerList.print();
 
     }
 }

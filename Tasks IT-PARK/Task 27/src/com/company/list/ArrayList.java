@@ -1,11 +1,11 @@
-package com.company;
+package com.company.list;
 
-public class GenericArrayList<T> implements List<T>{
+public class ArrayList<T> implements List<T> {
     private T elements[];
     private int count;
 
-    public GenericArrayList() {
-        this.elements = (T[])new Object[10];
+    public ArrayList() {
+        this.elements = (T[]) new Object[10];
         this.count = 0;
     }
 
@@ -16,6 +16,7 @@ public class GenericArrayList<T> implements List<T>{
         }
         this.elements[0] = value;
     }
+
     @Override
     public void add(T value) {
         this.elements[count] = value;
@@ -40,7 +41,7 @@ public class GenericArrayList<T> implements List<T>{
 
     @Override
     public void reverse() {
-        for (int i = 0; i < this.elements.length/2; i++) {
+        for (int i = 0; i < this.elements.length / 2; i++) {
             T tmp = elements[i];
             elements[i] = elements[elements.length - 1 - i];
             elements[elements.length - 1 - i] = tmp;
@@ -78,8 +79,9 @@ public class GenericArrayList<T> implements List<T>{
 
     @Override
     public void remove(int index) {
-        for (int i = index; i < elements.length-1; i++) {
+        for (int i = index; i < elements.length - 1; i++) {
             elements[i] = elements[i + 1];
         }
     }
 }
+
