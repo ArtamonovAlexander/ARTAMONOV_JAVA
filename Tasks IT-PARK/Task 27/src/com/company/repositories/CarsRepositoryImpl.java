@@ -28,14 +28,14 @@ public class CarsRepositoryImpl implements CarsRepository {
     }
 
     @Override
-    public Car find(int id) {
+    public Car find(Long id) {
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader reader = new BufferedReader(fileReader);
             String currentLine = reader.readLine();
             while (currentLine != null) {
                 String userData[] = currentLine.split(" ");
-                int currentId = Integer.parseInt(userData[2]);
+                Long currentId = Long.parseLong(userData[2]);
                 if (currentId == id) {
                     Car car = new Car(userData[0], userData[1], userData[2]);
 //                    user.setId(currentId);
