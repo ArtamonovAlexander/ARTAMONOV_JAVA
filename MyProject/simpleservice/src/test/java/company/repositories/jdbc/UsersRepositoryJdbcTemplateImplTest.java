@@ -1,5 +1,6 @@
 package company.repositories.jdbc;
 
+import org.junit.Before;
 import org.junit.Test;
 import company.models.User;
 import static org.junit.Assert.*;
@@ -11,39 +12,22 @@ import java.util.List;
 
 public class UsersRepositoryJdbcTemplateImplTest {
 
-//    public void dataManager() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//        dataSource.setUsername("root");
-//        dataSource.setPassword("1234");
-//        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-//
-//        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-//    }
-//
-//    User user = User.builder()
-//            .firstName("Муса")
-//            .lastName("Джалил")
-//            .login("musa777")
-//            .password("хаерле ирте")
-//            .build();
+    UsersRepository usersRepository;
 
-//        System.out.println(usersRepository.findAll());
-//        System.out.println(usersRepository.findOneByLogin("victorq"));
-//        System.out.println(usersRepository.findAllByFirstNameAndLastName("Марсель", "Сидиков"));
-//        usersRepository.save(user);
-//        usersRepository.delete((long) 5);
-
-    @org.junit.Test
-    public void save() {
+    @Before
+    public void setUp() {
+        System.out.println("In setUp");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("1234");
         dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
 
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
+        usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
+    }
 
+    @org.junit.Test
+    public void save() {
         User user = User.builder()
                 .firstName("Муса")
                 .lastName("Джалил")
@@ -59,14 +43,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
 
     @org.junit.Test
     public void find() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-
         User marsel = User.builder()
                 .firstName("Марсель")
                 .lastName("Сидиков")
@@ -83,14 +59,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
 
     @org.junit.Test
     public void findAll() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-
         List<User> userList = usersRepository.findAll();
         int sizeList = userList.size();
         int sizeTable = ((UsersRepositoryJdbcTemplateImpl) usersRepository).size();
@@ -99,14 +67,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
 
     @org.junit.Test
     public void delete() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-
         long id = 7;
         usersRepository.delete(id);
         User user = usersRepository.find(id);
@@ -115,13 +75,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
 
     @org.junit.Test
     public void findOneByLogin() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
         User user = usersRepository.findOneByLogin("marsel");
         User user1 = usersRepository.find(1l);
         assertEquals(user1, user);
@@ -129,14 +82,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
 
     @org.junit.Test
     public void findAllByFirstNameAndLastName() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-
-        UsersRepository usersRepository = new UsersRepositoryJdbcTemplateImpl(dataSource);
-
         User marsel = User.builder()
                 .firstName("Марсель")
                 .lastName("Сидиков")

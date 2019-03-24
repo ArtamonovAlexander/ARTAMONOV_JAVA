@@ -25,8 +25,6 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
     private final static String SQL_INSERT = "insert into service_user(first_name, last_name, login, password) " + "values (?, ?, ?, ?)";
     //language=SQL
     private final static String SQL_DELETE = "delete from service_user where id = ?";
-    //language=SQL
-    private final static String SQL_SIZE = "SELECT COUNT(*) FROM service_user";
     //language=sql
     private final static String SQL = "select * from service_user ";
 
@@ -50,7 +48,6 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
         jdbcTemplate.update(SQL_INSERT, model.getFirstName(), model.getLastName(), model.getLogin(), model.getPassword());
     }
 
-//    @Override
     public int size() {
        SqlRowSet a = jdbcTemplate.queryForRowSet(SQL);
        a.last();
