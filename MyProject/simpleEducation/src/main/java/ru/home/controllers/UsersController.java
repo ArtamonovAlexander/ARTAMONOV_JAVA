@@ -5,8 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ru.home.form.CarForm;
 import ru.home.form.UserForm;
+import ru.home.model.Car;
 import ru.home.model.User;
+import ru.home.repositiory.UsersCar;
+import ru.home.services.CarService;
 import ru.home.services.UsersService;
 
 import java.util.List;
@@ -32,5 +36,22 @@ public class UsersController {
         return "redirect:/users";
     }
 
+    @Autowired
+    private CarService carService;
+
+    @GetMapping("/car")
+    public ModelAndView getCarPage(){
+        List<Car> allCar = carService.getAllCar();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("cars", allCar);
+        modelAndView.setViewName("car_page");
+        return modelAndView;
+    }
+
+    @PostMapping("/car")
+    public String addNewCar(CarForm form){
+        carService.addCar(form);
+        return "redirect:/car";
+    }
 
 }

@@ -12,3 +12,10 @@ create table auth (
   cookie_value varchar(150),
   foreign key (user_id) references users(id)
 );
+
+create table car (
+  id bigint not null AUTO_INCREMENT primary key,
+  nameUser varchar(20),
+  model varchar(20),
+  number varchar(20)
+);
