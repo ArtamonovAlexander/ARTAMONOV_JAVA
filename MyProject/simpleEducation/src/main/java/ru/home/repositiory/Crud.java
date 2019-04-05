@@ -1,4 +1,4 @@
-package repositiory;
+package ru.home.repositiory;
 
 public interface Crud<T> {
     void save(T t);

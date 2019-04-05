@@ -1,29 +1,30 @@
-package servlets;
+package ru.home.servlets;
 
-import form.AuthUserForm;
+import ru.home.form.AuthUserForm;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import repositiory.UserRepository;
-import services.UsersService;
+import ru.home.services.UsersService;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Optional;
 
 
-@WebServlet("/signUp")
-public class SignUpServlet extends HttpServlet {
+@WebServlet("/signIn")
+public class SignInServlet extends HttpServlet {
 
     private UsersService usersService;
 
     @Override
-    public void init() throws ServletException {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("context.xml");
-        usersService = applicationContext.getBean(UsersService.class);
+    public void init(ServletConfig config) throws ServletException {
+        ApplicationContext context = (ApplicationContext) config.getServletContext().getAttribute("springContext");
+        usersService = context.getBean(UsersService.class);
     }
 
     @Override
@@ -32,17 +33,17 @@ public class SignUpServlet extends HttpServlet {
         writer.print("<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
-                "\t<title>SignUp</title>\n" +
+                "\t<title>SignIn</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "<div>\n" +
-                "\t<form method='post'>\n" +
+                "\t<ru.home.form method='post'>\n" +
                 "\t\t<input type=\"text\" name=\"login\" placeholder=\"Login\">\n" +
                 "\t\t<br>\n" +
                 "\t\t<input type=\"password\" name=\"password\" placeholder=\"Password\">\n" +
                 "\t\t<br>\n" +
                 "\t\t<input type=\"submit\" value=\"SignUp\">\n" +
-                "\t</form>\n" +
+                "\t</ru.home.form>\n" +
                 "</div>\n" +
                 "</body>");
     }
@@ -54,7 +55,14 @@ public class SignUpServlet extends HttpServlet {
                 .password(req.getParameter("password"))
                 .build();
 
-        usersService.signUp(form);
-
+        Optional<String> cookieValue = usersService.signInAndCreateCookieValue(form);
+        if(cookieValue.isPresent()) {
+            Cookie cookie = new Cookie("CLIENT-ID", cookieValue.get());
+            cookie.setMaxAge(-1);
+            resp.addCookie(cookie);
+            resp.sendRedirect("/users");
+        }
+        else
+            resp.sendRedirect("/signIn");
     }
 }

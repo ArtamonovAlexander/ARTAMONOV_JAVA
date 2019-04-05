@@ -10,5 +10,5 @@ create table auth (
   id bigint  NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_id bigint,
   cookie_value varchar(150),
-  foreign key (user_id) references service_user(id)
+  foreign key (user_id) references users(id)
 );

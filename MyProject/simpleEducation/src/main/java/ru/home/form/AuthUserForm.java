@@ -1,14 +1,11 @@
-package form;
+package ru.home.form;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.User;
-import repositiory.UserRepository;
 
 import java.beans.Encoder;
-import java.security.spec.EncodedKeySpec;
 
 @Data
 @Builder

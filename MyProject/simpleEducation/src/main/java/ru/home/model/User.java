@@ -1,4 +1,4 @@
-package model;
+package ru.home.model;
 
 
 import lombok.Builder;
