@@ -8,8 +8,8 @@ import lombok.Data;
 @Builder
 public class User {
     private Long id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String password_hash;
     private String login;
 }

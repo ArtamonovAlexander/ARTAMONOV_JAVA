@@ -29,7 +29,6 @@ public class AuthRepositoryImpl implements AuthRepository {
         return auth;
     };
 
-
     @Override
     public void save(Auth auth) {
         jdbcTemplate.update(SQL_INSERT, auth.getId(), auth.getValue());
