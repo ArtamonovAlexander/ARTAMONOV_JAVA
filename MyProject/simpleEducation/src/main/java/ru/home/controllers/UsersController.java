@@ -35,23 +35,4 @@ public class UsersController {
         usersService.addUser(form);
         return "redirect:/users";
     }
-
-    @Autowired
-    private CarService carService;
-
-    @GetMapping("/car")
-    public ModelAndView getCarPage(){
-        List<Car> allCar = carService.getAllCar();
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("cars", allCar);
-        modelAndView.setViewName("car_page");
-        return modelAndView;
-    }
-
-    @PostMapping("/car")
-    public String addNewCar(CarForm form){
-        carService.addCar(form);
-        return "redirect:/car";
-    }
-
 }

@@ -13,9 +13,9 @@ import java.util.List;
 public class UsersCarImpl implements UsersCar {
 
     //language=sql
-    private static final String SQL_INSERT = "insert into car (nameUser, model, number) VALUES (?, ?, ?)";
+    private static final String SQL_INSERT = "insert into cars (nameUser, model, number) VALUES (?, ?, ?)";
     //language=sql
-    private static final String SQL_SELECT_ALL = "SELECT * FROM car";
+    private static final String SQL_SELECT_ALL = "SELECT * FROM cars";
 
     @Autowired
     JdbcTemplate jdbcTemplate;
