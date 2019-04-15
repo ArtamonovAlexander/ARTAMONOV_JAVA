@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.home.model.Center</OriginalElement>
+  <nodes>
+    <node x="40.0" y="158.0">ru.home.model.Seance</node>
+    <node x="0.0" y="0.0">ru.home.model.User</node>
+    <node x="91.0" y="0.0">ru.home.model.Center</node>
+    <node x="42.5" y="79.0">ru.home.model.Room</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.home.model.Room" target="ru.home.model.User">
+      <point x="-30.0" y="-14.5" />
+      <point x="52.5" y="59.0" />
+      <point x="17.75" y="59.0" />
+      <point x="-17.75" y="14.5" />
+    </edge>
+    <edge source="ru.home.model.Center" target="ru.home.model.Room">
+      <point x="20.75" y="14.5" />
+      <point x="153.25" y="59.0" />
+      <point x="112.5" y="59.0" />
+      <point x="30.0" y="-14.5" />
+    </edge>
+    <edge source="ru.home.model.User" target="ru.home.model.Room">
+      <point x="17.75" y="14.5" />
+      <point x="53.25" y="49.0" />
+      <point x="72.5" y="49.0" />
+      <point x="-10.0" y="-14.5" />
+    </edge>
+    <edge source="ru.home.model.Room" target="ru.home.model.Center">
+      <point x="10.0" y="-14.5" />
+      <point x="92.5" y="49.0" />
+      <point x="111.75" y="49.0" />
+      <point x="-20.75" y="14.5" />
+    </edge>
+    <edge source="ru.home.model.Seance" target="ru.home.model.Room">
+      <point x="-21.25" y="-14.5" />
+      <point x="61.25" y="133.0" />
+      <point x="62.5" y="133.0" />
+      <point x="-20.0" y="14.5" />
+    </edge>
+    <edge source="ru.home.model.Room" target="ru.home.model.Seance">
+      <point x="20.0" y="14.5" />
+      <point x="102.5" y="133.0" />
+      <point x="103.75" y="133.0" />
+      <point x="21.25" y="-14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="377.0" y="134.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
