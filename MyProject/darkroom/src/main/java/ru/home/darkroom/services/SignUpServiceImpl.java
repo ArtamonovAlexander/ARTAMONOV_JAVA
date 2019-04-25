@@ -1,0 +1,4 @@
+package ru.home.darkroom.services;
+
+public class SignUpServiceImpl {
+}

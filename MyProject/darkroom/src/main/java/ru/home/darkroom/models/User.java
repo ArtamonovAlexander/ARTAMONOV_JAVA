@@ -1,4 +1,5 @@
-package ru.home.darkroom.domain;
+/*
+package ru.home.darkroom.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,21 +7,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
-public class Center {
-
+@Table(name = "Usr")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String login;
+    private String password;
 
-    @OneToMany(mappedBy = "center")
-    private List<Room> rooms;
 }
+*/
