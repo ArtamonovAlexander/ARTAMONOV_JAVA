@@ -1,4 +1,4 @@
-package ru.home.darkroom.domain;
+package ru.home.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

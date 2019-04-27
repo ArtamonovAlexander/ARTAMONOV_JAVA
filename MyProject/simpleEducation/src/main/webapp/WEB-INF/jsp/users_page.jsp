@@ -1,6 +1,6 @@
 <%--<%@ page import="ru.itpark.models.User" %>--%>
 <%--<%@ page import="java.util.List" %>--%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,10 +11,10 @@
 </head>
 <body>
 <div>
-    <form action = "/users" method="post">
+    <form action="/users" method="post">
         <input type="text" name="firstName">
         <input type="text" name="lastName">
-        <input type="submit" name="Add" >
+        <input type="submit" name="Add">
     </form>
 </div>
 <div>
@@ -32,19 +32,19 @@
             </tr>
         </c:forEach>
         <%--<%--%>
-            <%--List<User> users = (List<User>) request.getAttribute("users");--%>
-            <%--for (User user : users) {--%>
+        <%--List<User> users = (List<User>) request.getAttribute("users");--%>
+        <%--for (User user : users) {--%>
         <%--%>--%>
         <%--<tr>--%>
-            <%--<td><%=user.getId()%>--%>
-            <%--</td>--%>
-            <%--<td><%=user.getFirstName()%>--%>
-            <%--</td>--%>
-            <%--<td><%=user.getLastName()%>--%>
-            <%--</td>--%>
+        <%--<td><%=user.getId()%>--%>
+        <%--</td>--%>
+        <%--<td><%=user.getFirstName()%>--%>
+        <%--</td>--%>
+        <%--<td><%=user.getLastName()%>--%>
+        <%--</td>--%>
         <%--</tr>--%>
         <%--<%--%>
-            <%--}--%>
+        <%--}--%>
         <%--%>--%>
     </table>
 </div>

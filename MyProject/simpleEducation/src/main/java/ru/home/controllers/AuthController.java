@@ -19,18 +19,18 @@ public class AuthController {
     private AuthService service;
 
     @GetMapping("/signUp")
-    public String getSignUpPage(){
+    public String getSignUpPage() {
         return "sign_up";
     }
 
     @PostMapping("/signUp")
-    public String signUp(UserForm userForm){
+    public String signUp(UserForm userForm) {
         service.signUp(userForm);
         return "redirect:/sign_in";
     }
 
     @GetMapping("/signIn")
-    public String getSignInPage(){
+    public String getSignInPage() {
         return "sign_in";
     }
 

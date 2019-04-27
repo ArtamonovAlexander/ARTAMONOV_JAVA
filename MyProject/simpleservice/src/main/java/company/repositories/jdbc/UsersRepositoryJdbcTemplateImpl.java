@@ -49,9 +49,9 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
     }
 
     public int size() {
-       SqlRowSet a = jdbcTemplate.queryForRowSet(SQL);
-       a.last();
-       return a.getRow();
+        SqlRowSet a = jdbcTemplate.queryForRowSet(SQL);
+        a.last();
+        return a.getRow();
     }
 
     @Override
@@ -70,7 +70,7 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     @Override
     public void delete(Long id) {
-         jdbcTemplate.update(SQL_DELETE, id);
+        jdbcTemplate.update(SQL_DELETE, id);
     }
 
     @Override

@@ -3,7 +3,9 @@ package company.repositories.jdbc;
 import org.junit.Before;
 import org.junit.Test;
 import company.models.User;
+
 import static org.junit.Assert.*;
+
 import company.repositories.UsersRepository;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -54,7 +56,6 @@ public class UsersRepositoryJdbcTemplateImplTest {
         marsel.setId(1l);
         assertEquals(marsel, user);
     }
-
 
 
     @org.junit.Test

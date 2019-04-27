@@ -1,12 +1,16 @@
-package ru.home.darkroom.model;
+package ru.home.darkroom.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.sql.Date;
 
 @Data
 @Builder
@@ -19,15 +23,14 @@ public class Guest {
     private Long id;
 
     private String name;
-    private String login;
-    private String password;
-    private Integer age;
+    private Long age;
     private String gender;
     private Long number;
+    private String dateSeance;
+    private String time;
+
 
 //    @ManyToMany(mappedBy = "clients")
 //    private List<Room> rooms;
 
-    @Enumerated(value = EnumType.STRING)
-    private Role role;
 }

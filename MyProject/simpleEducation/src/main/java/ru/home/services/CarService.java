@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CarService {
     List<Car> getAllCar();
+
     void addCar(CarForm form);
 }

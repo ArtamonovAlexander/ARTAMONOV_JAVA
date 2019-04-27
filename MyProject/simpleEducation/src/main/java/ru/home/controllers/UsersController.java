@@ -22,7 +22,7 @@ public class UsersController {
     private UsersService usersService;
 
     @GetMapping("/users")
-     public ModelAndView getUsersPage(){
+    public ModelAndView getUsersPage() {
         List<User> allUsers = usersService.getAllUsers();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("users", allUsers);
@@ -31,7 +31,7 @@ public class UsersController {
     }
 
     @PostMapping("/users")
-    public String addNewUser(UserForm form){
+    public String addNewUser(UserForm form) {
         usersService.addUser(form);
         return "redirect:/users";
     }

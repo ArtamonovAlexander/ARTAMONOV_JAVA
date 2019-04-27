@@ -2,5 +2,5 @@
 
 <@c.page>
     <h5>Hello, Sashok!</h5>
-<div>This is SPARTA!!!!</div>
+    <div>This is SPARTA!!!!</div>
 </@c.page>

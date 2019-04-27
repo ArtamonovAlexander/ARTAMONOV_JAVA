@@ -18,10 +18,10 @@
         </tr>
         <#list users as user>
             <tr>
-            <td>${user.name}</td>
-            <td>${user.gender}</td>
-            <td>${user.age}</td>
-            <td>${user.number}</td>
+                <td>${user.name}</td>
+                <td>${user.gender}</td>
+                <td>${user.age}</td>
+                <td>${user.number}</td>
             </tr>
         </#list>
     </table>

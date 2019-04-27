@@ -34,7 +34,5 @@ public class Main {
 //        System.out.println(((UsersRepositoryJdbcTemplateImpl) usersRepository).size());
 
 
-
-
     }
 }

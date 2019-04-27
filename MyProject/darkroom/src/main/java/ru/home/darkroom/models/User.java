@@ -1,15 +1,15 @@
-/*
-package ru.home.darkroom.model;
+package ru.home.darkroom.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
-@Data
 @Builder
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -19,8 +19,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String firstName;
     private String login;
-    private String password;
+    private String passwordHash;
+
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
 }
-*/

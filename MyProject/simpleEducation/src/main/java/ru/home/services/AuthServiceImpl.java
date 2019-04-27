@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
     private PasswordEncoder encoder;
 
     @Override
-    public void signUp(UserForm form){
+    public void signUp(UserForm form) {
         String passwordHash = encoder.encode(form.getPassword());
         User user = User.builder()
                 .login(form.getLogin())
@@ -42,9 +42,9 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Optional<String> signInAndCreateCookieValue(AuthUserForm form) {
         Optional<User> userCandidate = usersRepository.findOneByLogin(form.getLogin());
-        if(userCandidate.isPresent()){
+        if (userCandidate.isPresent()) {
             User user = userCandidate.get();
-            if(encoder.matches(form.getPassword(), user.getPassword_hash())){
+            if (encoder.matches(form.getPassword(), user.getPassword_hash())) {
                 String value = UUID.randomUUID().toString();
                 Auth auth = Auth.builder()
                         .user(user)
@@ -60,7 +60,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Optional<User> findUserByCookie(Cookie cookie) {
         Optional<Auth> auth = authRepository.findByValue(cookie.getValue());
-        if(auth.isPresent()){
+        if (auth.isPresent()) {
             return Optional.of(auth.get().getUser());
         } else return Optional.empty();
     }

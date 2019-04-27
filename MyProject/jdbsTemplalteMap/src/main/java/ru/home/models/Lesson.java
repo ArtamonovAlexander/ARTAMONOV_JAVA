@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lesson {
-    private  Long id;
+    private Long id;
     private String theme;
     private String beginTime;
     private String endTime;

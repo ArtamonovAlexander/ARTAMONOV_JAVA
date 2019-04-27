@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.home.app.model.User;
-import ru.home.app.repository.UsersRepository;
+import ru.home.app.services.UsersService;
 
 import java.util.List;
 
@@ -15,11 +15,14 @@ import java.util.List;
 @Controller
 public class UsersController {
     @Autowired
-    private UsersRepository usersRepository;
+    private UsersService usersService;
 
     @GetMapping("/users")
-    public String getUsersPage(ModelMap model) {
-        List<User> users = usersRepository.findAll();
+    public String getUsersPage(@RequestParam(value = "sort", required = false), Boolean sort,
+                               @RequestParam(value = "by", required = false) String by,
+                               @RequestParam(value = "desc", required = false) Boolean desc,
+                               ModelMap model) {
+        List<User> users = usersService.getUsers(sort, by, desc);
         model.addAttribute("users", users);
         return "users";
     }

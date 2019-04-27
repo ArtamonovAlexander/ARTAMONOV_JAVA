@@ -1,4 +1,4 @@
-//package ru.home.darkroom.model;
+//package ru.home.darkroom.models;
 //
 //import lombok.AllArgsConstructor;
 //import lombok.Builder;

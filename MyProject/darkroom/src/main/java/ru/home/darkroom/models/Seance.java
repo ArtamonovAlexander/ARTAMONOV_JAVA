@@ -1,4 +1,4 @@
-//package ru.home.darkroom.model;
+//package ru.home.darkroom.models;
 //
 //import lombok.AllArgsConstructor;
 //import lombok.Builder;
@@ -17,7 +17,6 @@
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
 //    private String beginTime;
-//    private String endTime;
 //
 //    @ManyToOne
 //    @JoinColumn(name = "room_id")

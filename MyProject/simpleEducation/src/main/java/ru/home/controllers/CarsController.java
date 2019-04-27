@@ -18,7 +18,7 @@ public class CarsController {
     private CarService carService;
 
     @GetMapping("/cars")
-    public ModelAndView getCarPage(){
+    public ModelAndView getCarPage() {
         List<Car> allCar = carService.getAllCar();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("cars", allCar);
@@ -27,7 +27,7 @@ public class CarsController {
     }
 
     @PostMapping("/cars")
-    public String addNewCar(CarForm form){
+    public String addNewCar(CarForm form) {
         carService.addCar(form);
         return "redirect:/cars";
     }

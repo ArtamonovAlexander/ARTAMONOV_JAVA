@@ -23,10 +23,10 @@ public class CoursesRepositoryJdbcTemlateImpl implements CoursesRepository {
 
     private Map<Long, Course> courseMap = new HashMap<>();
 
-    private RowMapper<Course> courseRowMapper = (row, rowNumber)-> {
+    private RowMapper<Course> courseRowMapper = (row, rowNumber) -> {
         Long courseId = row.getLong(1);
 
-        if(!courseMap.containsKey(courseId)){
+        if (!courseMap.containsKey(courseId)) {
             Course course = Course.builder()
                     .id(row.getLong("id"))
                     .title(row.getString("title"))
@@ -39,8 +39,8 @@ public class CoursesRepositoryJdbcTemlateImpl implements CoursesRepository {
                 .id(row.getLong(3))
                 .theme(row.getString("theme"))
                 .build();
-            courseMap.get(courseId).getLessons().add(lesson);
-            return null;
+        courseMap.get(courseId).getLessons().add(lesson);
+        return null;
     };
 
     public List<Course> findAll() {

@@ -11,13 +11,13 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "usr")
-public class User  implements UserDetails {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String password;
-    private  boolean active;
+    private boolean active;
 
     private String email;
     private String activationCode;

@@ -5,10 +5,11 @@ import org.springframework.stereotype.Component;
 import ru.home.form.UserForm;
 import ru.home.model.User;
 import ru.home.repositiory.UsersRepository;
+
 import java.util.List;
 
 @Component
-public class UsersServiceImpl implements UsersService{
+public class UsersServiceImpl implements UsersService {
 
     @Autowired
     private UsersRepository usersRepository;

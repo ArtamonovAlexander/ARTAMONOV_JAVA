@@ -1,4 +1,4 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,11 +9,11 @@
 </head>
 <body>
 <div>
-    <form action = "/cars" method="post">
+    <form action="/cars" method="post">
         <input type="text" name="nameUser">
         <input type="text" name="model">
         <input type="text" name="number">
-        <input type="submit" name="Add" >
+        <input type="submit" name="Add">
     </form>
 </div>
 <div>

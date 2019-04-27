@@ -11,9 +11,22 @@
 <div>
     <form method="post">
         <input type="text" name="name" placeholder="Имя">
+        <br>
         <input type="text" name="age" placeholder="Кол-во лет">
+        <br>
         <input type="text" name="gender" placeholder="Пол">
+        <br>
         <input type="text" name="number" placeholder="Номер телефона">
+        <p>
+            <label for="dateSeance">Дата и время сеанса </label>
+            <input type="date" id="dateSeance" name="dateSeance"/>
+        <select class = "form-control" name="time">
+            <option>17:00</option>
+            <option>19:30</option>
+            <option>21:00</option>
+        </select>
+        </p>
+        <br>
         <input type="submit" value="Зарегистрироваться">
     </form>
 </div>
@@ -25,6 +38,8 @@
             <th>Кол-во лет</th>
             <th>Пол</th>
             <th>Номер телефона</th>
+            <th>Дата сеанса</th>
+            <th>Время</th>
         </tr>
     <#list guests as guest>
         <tr>
@@ -33,6 +48,8 @@
             <td>${guest.age}</td>
             <td>${guest.gender}</td>
             <td>${guest.number}</td>
+            <td>${guest.dateSeance}</td>
+            <td>${guest.time}</td>
         </tr>
     </#list>
     </table>

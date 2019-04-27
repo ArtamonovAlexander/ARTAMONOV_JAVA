@@ -37,10 +37,10 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
     private RowMapper<User> usersRowMapper = (row, rowNumber) ->
             User.builder().id(row.getLong("id"))
                     .firstName(row.getString("firstName"))
-            .lastName(row.getString("lastName"))
-            .login(row.getString("login"))
-            .password_hash(row.getString("password_hash"))
-            .build();
+                    .lastName(row.getString("lastName"))
+                    .login(row.getString("login"))
+                    .password_hash(row.getString("password_hash"))
+                    .build();
 
     @Override
     public void save(User model) {
@@ -59,7 +59,7 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository {
 
     @Override
     public List<User> findAll() {
-       return jdbcTemplate.query(SQL_SELECT_ALL, usersRowMapper);
+        return jdbcTemplate.query(SQL_SELECT_ALL, usersRowMapper);
     }
 
     @Override
