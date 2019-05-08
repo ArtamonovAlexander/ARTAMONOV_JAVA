@@ -4,13 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Date;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -27,10 +22,10 @@ public class Guest {
     private String gender;
     private Long number;
     private String dateSeance;
-    private String time;
+    private String timeSeance;
 
 
-//    @ManyToMany(mappedBy = "clients")
-//    private List<Room> rooms;
+    @ManyToMany(mappedBy = "clients")
+    private List<Room> rooms;
 
 }

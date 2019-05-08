@@ -20,7 +20,7 @@
         <p>
             <label for="dateSeance">Дата и время сеанса </label>
             <input type="date" id="dateSeance" name="dateSeance"/>
-        <select class = "form-control" name="time">
+        <select class = "form-control" name="timeSeance">
             <option>17:00</option>
             <option>19:30</option>
             <option>21:00</option>
@@ -31,26 +31,40 @@
     </form>
 </div>
 <div>
-    <table>
+    <table BORDER="1">
         <tr>
-            <th>ID</th>
-            <th>Имя</th>
-            <th>Кол-во лет</th>
-            <th>Пол</th>
-            <th>Номер телефона</th>
-            <th>Дата сеанса</th>
-            <th>Время</th>
+            <th>10.10.19  17:00</th>
         </tr>
     <#list guests as guest>
         <tr>
-            <td>${guest.id}</td>
-            <td>${guest.name}</td>
-            <td>${guest.age}</td>
-            <td>${guest.gender}</td>
-            <td>${guest.number}</td>
-            <td>${guest.dateSeance}</td>
-            <td>${guest.time}</td>
+            <td>
+                ${guest.name}
+                <br>
+                ${guest.gender}
+                <br>
+                ${guest.number}
+                <br>
+            </td>
         </tr>
+
+<#--        <tr>-->
+<#--            <th>ID</th>-->
+<#--            <th>Имя</th>-->
+<#--            <th>Кол-во лет</th>-->
+<#--            <th>Пол</th>-->
+<#--            <th>Номер телефона</th>-->
+<#--            <th>Дата сеанса</th>-->
+<#--            <th>Время</th>-->
+<#--        </tr>-->
+<#--        <tr>-->
+<#--            <td>${guest.id}</td>-->
+<#--            <td>${guest.name}</td>-->
+<#--            <td>${guest.age}</td>-->
+<#--            <td>${guest.gender}</td>-->
+<#--            <td>${guest.number}</td>-->
+<#--            <td>${guest.dateSeance}</td>-->
+<#--            <td>${guest.timeSeance}</td>-->
+<#--        </tr>-->
     </#list>
     </table>
 </div>
