@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.home.darkroom.models.Guest;
 import ru.home.darkroom.services.GuestService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -32,4 +31,18 @@ public class GuestController {
         guestService.add(guest);
         return "redirect:/guest";
     }
+
+    @GetMapping("/search")
+    @PreAuthorize("permitAll()")
+    public String getSearchPage() {
+        return "search";
+    }
+
+    @GetMapping("/search.json")
+    @PreAuthorize("permitAll()")
+    @ResponseBody
+    public List<Guest> getUsersByKeyword(@RequestParam("q") LocalDateTime query) {
+        return guestService.getUsersWithSearch(query);
+    }
+
 }

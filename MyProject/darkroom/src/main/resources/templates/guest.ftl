@@ -5,6 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous"></script>
     <title>Guest</title>
 </head>
 <body>
@@ -12,29 +16,33 @@
     <form method="post">
         <input type="text" name="name" placeholder="Имя">
         <br>
-        <input type="text" name="age" placeholder="Кол-во лет">
+        <input type="number" name="age" placeholder="Кол-во лет">
         <br>
-        <input type="text" name="gender" placeholder="Пол">
-        <br>
-        <input type="text" name="number" placeholder="Номер телефона">
+        <input type="number" name="number" placeholder="Номер телефона">
         <p>
-            <label for="dateSeance">Дата и время сеанса </label>
-            <input type="date" id="dateSeance" name="dateSeance"/>
-        <select class = "form-control" name="timeSeance">
-            <option>17:00</option>
-            <option>19:30</option>
-            <option>21:00</option>
-        </select>
+            <label>Пол</label>
+            <select name="gender">
+                <option>M</option>
+                <option>Ж</option>
+            </select>
+            <br>
+            <label>Дата и время сеанса </label>
+            <input type="datetime-local" id="dateSeance" name="dateSeance"/>
+<#--            <select class="calendar-grid" name="timeSeance">-->
+<#--                <option>17:00</option>-->
+<#--                <option>19:30</option>-->
+<#--                <option>21:00</option>-->
+<#--            </select>-->
         </p>
         <br>
         <input type="submit" value="Зарегистрироваться">
+        <br>
     </form>
 </div>
+
 <div>
     <table BORDER="1">
-        <tr>
-            <th>10.10.19  17:00</th>
-        </tr>
+
     <#list guests as guest>
         <tr>
             <td>
@@ -46,25 +54,6 @@
                 <br>
             </td>
         </tr>
-
-<#--        <tr>-->
-<#--            <th>ID</th>-->
-<#--            <th>Имя</th>-->
-<#--            <th>Кол-во лет</th>-->
-<#--            <th>Пол</th>-->
-<#--            <th>Номер телефона</th>-->
-<#--            <th>Дата сеанса</th>-->
-<#--            <th>Время</th>-->
-<#--        </tr>-->
-<#--        <tr>-->
-<#--            <td>${guest.id}</td>-->
-<#--            <td>${guest.name}</td>-->
-<#--            <td>${guest.age}</td>-->
-<#--            <td>${guest.gender}</td>-->
-<#--            <td>${guest.number}</td>-->
-<#--            <td>${guest.dateSeance}</td>-->
-<#--            <td>${guest.timeSeance}</td>-->
-<#--        </tr>-->
     </#list>
     </table>
 </div>

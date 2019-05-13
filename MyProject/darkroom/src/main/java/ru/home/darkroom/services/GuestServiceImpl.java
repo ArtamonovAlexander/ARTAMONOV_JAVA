@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 import ru.home.darkroom.models.Guest;
 import ru.home.darkroom.repository.GuestRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class GuestServiceImpl implements GuestService {
+
     @Autowired
     private GuestRepository guestRepository;
 
@@ -21,4 +23,10 @@ public class GuestServiceImpl implements GuestService {
     public void add(Guest guest) {
         guestRepository.save(guest);
     }
+
+    @Override
+    public List<Guest> getUsersWithSearch(LocalDateTime query) {
+        return guestRepository.findAllByDateSeance(query);
+    }
+
 }

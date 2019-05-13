@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -22,7 +24,7 @@ public class Guest {
     private String gender;
     private Long number;
     private String dateSeance;
-    private String timeSeance;
+//    private String timeSeance;
 
 
     @ManyToMany(mappedBy = "clients")
