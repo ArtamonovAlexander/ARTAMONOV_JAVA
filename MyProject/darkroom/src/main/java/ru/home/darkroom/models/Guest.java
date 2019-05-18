@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -19,12 +21,21 @@ public class Guest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String name;
+
+    @NotNull
+    @Min(15)
     private Long age;
+
+    @NotNull
     private String gender;
+
+    @NotNull
     private Long number;
-    private String dateSeance;
-//    private String timeSeance;
+
+    @NotNull
+    private LocalDateTime dateSeance;
 
 
     @ManyToMany(mappedBy = "clients")

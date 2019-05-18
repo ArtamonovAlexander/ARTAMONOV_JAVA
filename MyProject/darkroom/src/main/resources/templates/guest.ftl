@@ -27,12 +27,12 @@
             </select>
             <br>
             <label>Дата и время сеанса </label>
-            <input type="datetime-local" id="dateSeance" name="dateSeance"/>
-<#--            <select class="calendar-grid" name="timeSeance">-->
-<#--                <option>17:00</option>-->
-<#--                <option>19:30</option>-->
-<#--                <option>21:00</option>-->
-<#--            </select>-->
+            <input type="date" id="dateSeance" name="dateSeance"/>
+            <select name="dateSeance">
+                <option>17:00</option>
+                <option>19:30</option>
+                <option>21:00</option>
+            </select>
         </p>
         <br>
         <input type="submit" value="Зарегистрироваться">
@@ -46,13 +46,16 @@
     <#list guests as guest>
         <tr>
             <td>
-                ${guest.name}
+                <a href="/guest/${guest.id}">${guest.name}</a>
                 <br>
                 ${guest.gender}
                 <br>
                 ${guest.number}
                 <br>
+                ${guest.dateSeance}
+                <br>
             </td>
+            <td><a href="/guest/delete/${guest.id}">Delete</a></td>
         </tr>
     </#list>
     </table>

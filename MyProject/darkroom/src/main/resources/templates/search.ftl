@@ -12,9 +12,6 @@
     <title>Guest</title>
 </head>
 <body>
-<#--<div>-->
-<#--    <input type="datetime-local" id="dateSeance" name="dateSeance"/>-->
-<#--</div>-->
 <script>
     function message(query) {
         $.ajax({
