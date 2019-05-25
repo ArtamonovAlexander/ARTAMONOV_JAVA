@@ -5,15 +5,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style.css" >
-    <link rel="stylesheet" href="/css/normalize.css">
-    <script
-            src="https://code.jquery.com/jquery-3.4.0.js"
-            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-            crossorigin="anonymous"></script>
+<#--    <link rel="stylesheet" href="/css/style.css" >-->
+<#--    <link rel="stylesheet" href="/css/normalize.css">-->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script src="/js/viewButton.js"></script>
     <title>Guest</title>
 </head>
 <body>
+<button onclick="listView()"><i class="fa fa-bars"></i> List</button>
+<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+        <h2>Column 1</h2>
+        <p>Some text..</p>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Column 2</h2>
+        <p>Some text..</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column" style="background-color:#ccc;">
+        <h2>Column 3</h2>
+        <p>Some text..</p>
+    </div>
+    <div class="column" style="background-color:#ddd;">
+        <h2>Column 4</h2>
+        <p>Some text..</p>
+    </div>
+</div>
 
 <#--<div>-->
 <#--    <table BORDER="1">-->

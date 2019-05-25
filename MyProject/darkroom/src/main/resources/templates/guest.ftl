@@ -34,21 +34,12 @@
         <label>Пол</label>
         <input type="radio" name="gender" value="M">Мужской
         <input type="radio" name="gender" value="Ж">Женский<br>
-<#--        <select type="text" name="gender">-->
-<#--            <option title="Hi">M</option>-->
-<#--            <option title="Hi">Ж</option>-->
-<#--        </select>-->
         <br>
         <label>Дата и время сеанса </label>
         <input type="date" id="dateSeance" name="dateSeance"/>
         <input type="checkbox" name="dateSeance" value="17:00">17:00
         <input type="checkbox" name="dateSeance" value="19:30">19:30
         <input type="checkbox" name="dateSeance" value="21:00">21:00<br>
-<#--        <select name="dateSeance">-->
-<#--            <option>17:00</option>-->
-<#--            <option>19:30</option>-->
-<#--            <option>21:00</option>-->
-<#--        </select>-->
     </p>
 
     <p>

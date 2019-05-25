@@ -50,28 +50,5 @@
         <input type="submit" value="Редактировать">
     </p>
 </form>
-<#--<form name="guest" action="/guest/showGuest" method="post">-->
-<#--    <p>ID</p>-->
-<#--    <input type="text" name="id" value="${guestData.id}">-->
-<#--    <p>Name</p>-->
-<#--    <input type="text" name="name" value="${guestData.name}">-->
-<#--    <p>Age</p>-->
-<#--    <input type="number" name="age" value="${guestData.age}">-->
-<#--    <p>Number</p>-->
-<#--    <input type="text" name="number" value="${guestData.number}">-->
-<#--    <p>Gender</p>-->
-<#--    <input type="text" name="gender" value="${guestData.gender}">-->
-<#--    <p>Date and Time</p>-->
-<#--    <p>Зарегистрирован на ${guestData.dateSeance}</p>-->
-<#--    <input type="date" id="dateSeance" name="dateSeance"/>-->
-<#--    <select name="dateSeance">-->
-<#--        <option>17:00</option>-->
-<#--        <option>19:30</option>-->
-<#--        <option>21:00</option>-->
-<#--    </select>-->
-<#--    <br>-->
-<#--    <input type="submit" value="Edit">-->
-<#--    <br>-->
-<#--</form>-->
 </body>
 </html>
