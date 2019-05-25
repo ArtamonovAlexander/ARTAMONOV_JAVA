@@ -12,5 +12,4 @@ public interface GuestService {
     List<Guest> getUsersWithSearch(LocalDateTime query);
     Guest getById(Long id);
     void delete(Long id);
-//    void saveGuest(Guest guest);
 }

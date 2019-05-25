@@ -11,6 +11,7 @@ import ru.home.darkroom.models.Guest;
 import ru.home.darkroom.services.GuestService;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -21,9 +22,7 @@ public class GuestController {
 
     @GetMapping
     @PreAuthorize("permitAll()")
-    public String getGuestPage(ModelMap model){
-        List<Guest> guests = guestService.getGuests();
-        model.addAttribute("guests", guests);
+    public String getGuestPage(){
         return "guest";
     }
 
@@ -43,8 +42,10 @@ public class GuestController {
     @GetMapping("/search.json")
     @PreAuthorize("permitAll()")
     @ResponseBody
-    public List<Guest> getUsersByKeyword(@RequestParam("q") LocalDateTime query) {
-        return guestService.getUsersWithSearch(query);
+    public List<Guest> getUsersByKeyword(@RequestParam("q") String query) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime ldt = LocalDateTime.parse(query, formatter);
+        return guestService.getUsersWithSearch(ldt);
     }
 
     @GetMapping("/{id}")
@@ -67,10 +68,12 @@ public class GuestController {
         guestService.delete(id);
         return "redirect:/guest";
     }
-//
-//    @GetMapping("/update/{id}")
-//    public String update(@PathVariable("id") int id, Model model){
-//        model.addAttribute("guest", guestService.getById(id));
-//        return "redirect:/showGuest";
-//    }
+
+    @GetMapping("/list")
+    @PreAuthorize("permitAll()")
+    public String getListPage(ModelMap model) {
+        List<Guest> guests = guestService.getGuests();
+        model.addAttribute("guests", guests);
+        return "list";
+    }
 }

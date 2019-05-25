@@ -12,6 +12,9 @@
     <title>Guest</title>
 </head>
 <body>
+<br>
+<a href="/guest">Back</a>
+<br>
 <script>
     function message(query) {
         $.ajax({
@@ -25,7 +28,7 @@
                 let current = response[i];
                 resultString += '<tr>';
                 resultString += '<td>';
-                resultString += current['name'] + ' ' + current['number'];
+                resultString += current['name'] + ' ' + current['number'] + ' ' + current['age'] + ' ' + current['gender'];
                 resultString += '</td>';
                 resultString += '</tr>';
             }

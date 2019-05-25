@@ -9,7 +9,6 @@ import ru.home.darkroom.repository.GuestRepository;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GuestServiceImpl implements GuestService {
@@ -39,6 +38,7 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public List<Guest> getUsersWithSearch(LocalDateTime query) {
+
         return guestRepository.findAllByDateSeance(query);
     }
 
@@ -51,10 +51,5 @@ public class GuestServiceImpl implements GuestService {
     public void delete(Long id) {
     guestRepository.deleteById(id);
     }
-
-//    @Override
-//    public void saveGuest(Guest guest){
-//        guestRepository.save(guest);
-//    }
 
 }
