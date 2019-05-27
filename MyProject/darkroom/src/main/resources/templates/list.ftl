@@ -1,41 +1,60 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<#--    <link rel="stylesheet" href="/css/style.css" >-->
-<#--    <link rel="stylesheet" href="/css/normalize.css">-->
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <script src="/js/viewButton.js"></script>
-    <title>Guest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/forList.css" >
+
 </head>
 <body>
-<button onclick="listView()"><i class="fa fa-bars"></i> List</button>
-<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
 
-<div class="row">
-    <div class="column" style="background-color:#aaa;">
-        <h2>Column 1</h2>
-        <p>Some text..</p>
-    </div>
-    <div class="column" style="background-color:#bbb;">
-        <h2>Column 2</h2>
-        <p>Some text..</p>
-    </div>
+<br>
+<div class="datagrid">
+    <table>
+        <thead>
+        <tr>
+            <th>header</th>
+            <th>header</th>
+            <th>header</th>
+            <th>header</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <div id="paging">
+                    <ul>
+                        <li><a href="#"><span>Previous</span></a></li>
+                        <li><a href="#" class="active"><span>1</span></a></li>
+                        <li><a href="#"><span>2</span></a></li>
+                        <li><a href="#"><span>3</span></a></li>
+                        <li><a href="#"><span>4</span></a></li>
+                        <li><a href="#"><span>5</span></a></li>
+                        <li><a href="#"><span>Next</span></a></li>
+                    </ul>
+                </div>
+        </tr>
+        </tfoot>
+        <tbody>
+        <#list guests as guest>
+        <tr class="alt">>
+            <td>${guest.name}</td>
+            <td>${guest.gender}</td>
+            <td>${guest.number}</td>
+            <td>${guest.dateSeance}</td>
+        </tr>
+<#--        <tr class="alt">-->
+<#--            <td>data</td>-->
+<#--            <td>data</td>-->
+<#--            <td>data</td>-->
+<#--            <td>data</td>-->
+<#--        </tr>-->
+        </#list>
+        </tbody>
+    </table>
 </div>
-
-<div class="row">
-    <div class="column" style="background-color:#ccc;">
-        <h2>Column 3</h2>
-        <p>Some text..</p>
-    </div>
-    <div class="column" style="background-color:#ddd;">
-        <h2>Column 4</h2>
-        <p>Some text..</p>
-    </div>
-</div>
+<#--<script src="/js/viewList.js"></script>-->
+</body>
+</html>
 
 <#--<div>-->
 <#--    <table BORDER="1">-->
@@ -57,5 +76,5 @@
 <#--        </#list>-->
 <#--    </table>-->
 <#--</div>-->
-</body>
-</html>
+<#--</body>-->
+<#--</html>-->

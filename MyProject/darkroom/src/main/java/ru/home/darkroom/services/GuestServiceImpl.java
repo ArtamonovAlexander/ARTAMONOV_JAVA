@@ -6,8 +6,11 @@ import ru.home.darkroom.form.GuestForm;
 import ru.home.darkroom.models.Guest;
 import ru.home.darkroom.repository.GuestRepository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -38,8 +41,18 @@ public class GuestServiceImpl implements GuestService {
 
     @Override
     public List<Guest> getUsersWithSearch(LocalDateTime query) {
-
         return guestRepository.findAllByDateSeance(query);
+    }
+
+    @Override
+    public List<Guest> getUsersWithSearchByDate(LocalDate ld) {
+        List<Guest> guestArrayList = new ArrayList<>();
+        for (int i = 0; i < guestRepository.findAll().size(); i++) {
+            if(ld.equals(guestRepository.findAll().get(i).getDateSeance().toLocalDate())){
+                guestArrayList.add(guestRepository.findAll().get(i));
+            }
+        }
+        return guestArrayList;
     }
 
     @Override

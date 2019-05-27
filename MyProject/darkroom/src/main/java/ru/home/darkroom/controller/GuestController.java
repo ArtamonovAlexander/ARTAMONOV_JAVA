@@ -10,6 +10,7 @@ import ru.home.darkroom.form.GuestForm;
 import ru.home.darkroom.models.Guest;
 import ru.home.darkroom.services.GuestService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -42,26 +43,35 @@ public class GuestController {
     @GetMapping("/search.json")
     @PreAuthorize("permitAll()")
     @ResponseBody
-    public List<Guest> getUsersByKeyword(@RequestParam("q") String query) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        LocalDateTime ldt = LocalDateTime.parse(query, formatter);
-        return guestService.getUsersWithSearch(ldt);
+    public List<Guest> getUsersByKeyword(@RequestParam(value = "q", required=false) String query,
+                                         @RequestParam(value = "t", required = false) String type) {
+        if (type != null && !type.isEmpty() && type.equals("Date")) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate ld = LocalDate.parse(query, formatter);
+            return guestService.getUsersWithSearchByDate(ld);
+        } else {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+            LocalDateTime ldt = LocalDateTime.parse(query, formatter);
+            return guestService.getUsersWithSearch(ldt);
+        }
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String getById(@PathVariable("id") Long id, Model model){
         model.addAttribute("guestData", guestService.getById(id));
         return "showGuest";
     }
 
     @GetMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteGuest(@PathVariable("id") Long id){
         guestService.delete(id);
         return "redirect:/guest";
     }
 
     @PostMapping("/showGuest")
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String updateGuest (@RequestParam("id") Long id,
                                @ModelAttribute("guest") GuestForm guestForm){
         guestService.add(guestForm);
@@ -70,7 +80,7 @@ public class GuestController {
     }
 
     @GetMapping("/list")
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String getListPage(ModelMap model) {
         List<Guest> guests = guestService.getGuests();
         model.addAttribute("guests", guests);

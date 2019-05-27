@@ -11,7 +11,7 @@ public class RootController {
     @PreAuthorize("permitAll()")
     public String getRootPage(Authentication authentication) {
         if(authentication != null)
-            return "redirect:/profile";
+            return "redirect:/guest/search";
         else
             return "redirect:/signIn";
     }

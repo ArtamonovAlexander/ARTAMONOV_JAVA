@@ -17,9 +17,12 @@
 <br>
 <script>
     function message(query) {
+        if (query.length === 10){
+            var type = 'Date';
+        }
         $.ajax({
             method: "GET",
-            url: '/guest/search.json?q=' + query
+            url: '/guest/search.json?q=' + query + '&t=' + type
         }).done(function (response) {
             let resultPlace = document.getElementById('result');
             let resultString = '<table>';
@@ -38,7 +41,8 @@
     }
 </script>
 <div>
-    <input id="query" type="datetime-local" onkeyup="message(document.getElementById('query').value)">
+    <input id="query" type="datetime-local" onkeyup="message(document.getElementById('query').value)">-->
+<#--    <input id="query" type="date" onkeyup="message(document.getElementById('query').value)">-->
 </div>
 <div id="result"></div>
 
