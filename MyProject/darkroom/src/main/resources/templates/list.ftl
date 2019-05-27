@@ -12,10 +12,10 @@
     <table>
         <thead>
         <tr>
-            <th>header</th>
-            <th>header</th>
-            <th>header</th>
-            <th>header</th>
+            <th>Имя</th>
+            <th>Пол</th>
+            <th>Номер</th>
+            <th>Дата сеанса</th>
         </tr>
         </thead>
         <tfoot>

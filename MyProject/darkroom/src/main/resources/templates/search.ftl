@@ -19,7 +19,10 @@
     function message(query) {
         if (query.length === 10){
             var type = 'Date';
+        } else {
+            query = document.getElementById('query1').value + 'T' + document.getElementById('query2').value
         }
+
         $.ajax({
             method: "GET",
             url: '/guest/search.json?q=' + query + '&t=' + type
@@ -41,8 +44,8 @@
     }
 </script>
 <div>
-    <input id="query" type="datetime-local" onkeyup="message(document.getElementById('query').value)">-->
-<#--    <input id="query" type="date" onkeyup="message(document.getElementById('query').value)">-->
+    <input id="query1" type="date" onkeyup="message(document.getElementById('query1').value)">
+    <input id="query2" type="time" onkeyup="message(document.getElementById('query2').value)">
 </div>
 <div id="result"></div>
 
