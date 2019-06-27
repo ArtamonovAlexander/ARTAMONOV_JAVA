@@ -34,7 +34,7 @@
                 let current = response[i];
                 resultString += '<tr>';
                 resultString += '<td>';
-                resultString += current['name'] + ' ' + current['number'] + ' ' + current['age'] + ' ' + current['gender'];
+                resultString += current['dateSeance'] + ' ' + current['name'] + ' ' + current['number'] + ' ' + current['age'] + ' ' + current['gender'];
                 resultString += '</td>';
                 resultString += '</tr>';
             }

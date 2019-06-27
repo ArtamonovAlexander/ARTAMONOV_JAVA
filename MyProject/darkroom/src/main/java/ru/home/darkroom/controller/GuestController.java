@@ -80,7 +80,7 @@ public class GuestController {
     }
 
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("permitAll()")
     public String getListPage(ModelMap model) {
         List<Guest> guests = guestService.getGuests();
         model.addAttribute("guests", guests);
