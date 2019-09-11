@@ -17,7 +17,7 @@ public class PeopleTest {
 
     @Test
     public void searchToFindIvanov() {
-        String actual = "+8 800 2000 500" + "\r\n" + "+8 800 200 600";
+        String actual = "1. +8 800 2000 500" + "\r\n" + "2. +8 800 200 600";
         String expected = People.search("иванов и.и.");
 
         assertEquals(expected , actual);
@@ -25,7 +25,7 @@ public class PeopleTest {
 
     @Test
     public void searchToFindPetrov() {
-        String actual = "+8 800 2000 700";
+        String actual = "1. +8 800 2000 700";
         String expected = People.search("ПЕТРОВ П.П.");
 
         assertEquals(expected , actual);
@@ -33,7 +33,7 @@ public class PeopleTest {
 
     @Test
     public void searchToFindSidorov() {
-        String actual = "+8 800 2000 800" + "\r\n" + "+8 800 2000 900"  + "\r\n" +  "+8 800 2000 000";
+        String actual = "1. +8 800 2000 800" + "\r\n" + "2. +8 800 2000 900"  + "\r\n" +  "3. +8 800 2000 000";
         String expected = People.search("СиДороВ С.С. ");
 
         assertEquals(expected , actual);

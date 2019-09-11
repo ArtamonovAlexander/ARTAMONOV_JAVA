@@ -2,8 +2,9 @@ package home;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-class People{
+class People {
 
     private final static Map<String, People> PEOPLES_MAP = new TreeMap<>();
 
@@ -15,14 +16,14 @@ class People{
         if (surnameInitials == null) return;
         this.surnameInitials = surnameInitials.trim();
         this.searchKey = this.surnameInitials.toUpperCase();
-        if (phones!=null) this.phones = Arrays.asList(phones);
+        if (phones != null) this.phones = Arrays.asList(phones);
         PEOPLES_MAP.put(searchKey, this);
     }
 
     // Метод поиска человека по ФИО.
     public static String search(String surnameInitials) {
         final People searchResult = PEOPLES_MAP.get(surnameInitials.toUpperCase().trim());
-        return searchResult==null || searchResult.phones == null ? "Такого ФИО в БД нет": searchResult.toString(); // если ФИО или телефон null, выдаем сообщение, иначе номера.
+        return searchResult == null || searchResult.phones == null ? "Такого ФИО в БД нет" : searchResult.toString(); // если ФИО или телефон null, выдаем сообщение, иначе номера.
     }
 
     @Override
@@ -39,7 +40,10 @@ class People{
 
     @Override // Переопределенный метод toString возвращает номера соответствующие ФИО
     public String toString() {
-        return phones.stream().collect(Collectors.joining("\r\n"));
+        return IntStream.iterate(0, i -> i + 1)
+                .limit(phones.size())
+                .mapToObj(i -> i + 1 + ". " + phones.get(i))
+                .collect(Collectors.joining("\r\n"));
+        //return phones.stream().collect(Collectors.joining("\r\n"));
     }
-
 }
